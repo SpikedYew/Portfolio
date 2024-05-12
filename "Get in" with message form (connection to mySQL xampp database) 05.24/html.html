@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Get in touch</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+<body>
+    <div class="box">
+        
+<div class="container">
+      <div class="panel">
+        <div class="panel-heading">
+          <h1>Get in touch</h1>
+        </div>
+        <div class="panel-body">
+          <form action="connection.php" method="post">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                name="firstName"
+              />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                name="lastName" 
+              /><!--Name jest do PHP-->
+            </div>
+            <div class="form-group">
+              <label for="gender">Gender</label>
+              <div>
+                <label for="male" class="radio-inline"
+                  ><input
+                    type="radio"
+                    name="gender"
+                    value="m"
+                    id="male"
+                  />Male</label
+                >
+                <label for="female" class="radio-inline"
+                  ><input
+                    type="radio"
+                    name="gender"
+                    value="f"
+                    id="female"
+                  />Female</label
+                >
+                <label for="others" class="radio-inline"
+                  ><input
+                    type="radio"
+                    name="gender"
+                    value="o"
+                    id="others"
+                  />Others</label
+                >
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="text"
+                class="form-control"
+                id="email"
+                name="email"
+              />
+            </div>
+            <div class="form-group">
+              <label for="number">Phone Number</label>
+              <input
+                type="number"
+                class="form-control"
+                id="number"
+                name="number"
+              />
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea type="text"
+                 class="form-message" 
+                 id="message" 
+                 name="message" 
+                 rows="5" 
+                 cols="35"></textarea>
+            </div>
+            <div class="container-btn">
+            
+                <button type="Submit" class="parent">
+                
+                    <div class="button-top">Submit
+                        <img src="blask.svg">
+                    
+                    </div>
+                    <div class="button-bottom">
+                        <img class="e" src="gwizdka.svg">
+                        <img class="f" src="gwizdka.svg">
+                        <img class="g" src="gwizdka.svg">
+                        <img class="h" src="gwizdka.svg">
+                    </div>
+                </button>
+            
+        </div>
+              <!--<div class="form-submit">
+            <input type="submit" class="btn" />
+              </div>-->
+          </form>
+      </div>
+
+</div>
+</div>
+<div class="container-bottom">
+    <img class="a" src="gwizdka.svg">
+    <img class="b" src="gwizdka.svg">
+    <img class="c" src="gwizdka.svg">
+    <img class="d" src="gwizdka.svg">
+  </div>
+</div>
+</body>
+</html>
