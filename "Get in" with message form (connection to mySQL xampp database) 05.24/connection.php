@@ -1,15 +1,4 @@
 <?php
-$host = "localhost";
-$username = "root";
-$password = "";
-$database = "getin";
-
-$conn = new mysqli($host, $username, $password, $database);
-
-if ($conn->connect_error){
-    die("Connection failed: " . $conn->connect_error);
-}
-
 $firstName = $_POST['firstName'];
 $lastName = $_POST['lastName'];
 $gender = $_POST['gender'];
@@ -17,11 +6,18 @@ $email = $_POST['email'];
 $number = $_POST['number'];
 $message = $_POST['message'];
 
-$sql = "INSERT INTO getin (firstName, lastName, gender, email, number, message) VALUES ('$firstName','$lastName','$gender','$email','$number','$message')";
-if ($conn->query($sql) === TRUE){
-    echo "Działa, wysłano superasnie";
-}
-else {
-    echo "Error: ".$sql."<br>".$conn->error;
+// Database connection
+$conn = new mysqli('localhost','root','','getintouch');
+if($conn->connect_error){
+    echo "$conn->connect_error";
+    die("Connection Failed : ". $conn->connect_error);
+} else {
+    $stmt = $conn->prepare("insert into gettingin(firstName, lastName, gender, email, number, message) values(?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssis", $firstName, $lastName, $gender, $email, $number, $message);
+    $execval = $stmt->execute();
+    //echo $execval;
+    echo "<div style='font-family: Comic Sans MS, Comic Sans, cursive; font-size: 50px;'>Wiadomość wysłana</div>";
+    $stmt->close();
+    $conn->close();
 }
 ?>
