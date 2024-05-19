@@ -60,6 +60,21 @@ ul li a:hover {
     height:100vh;
 
 }
+.dropdown-li {
+    position:absolute;
+    opacity:0;
+}
+@media (max-width: 600px) {
+    .dopdown-li {
+        position:absolute;
+        opacity:1;
+        background-color:red;
+    }
+    header {
+        color:red;
+        background-color: red;
+    }
+}
 
 @keyframes slindeinfromdown {
     0% {
