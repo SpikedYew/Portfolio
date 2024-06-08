@@ -27,7 +27,7 @@ $user = mysqli_fetch_assoc($query);
 
 <section class="start">
 
-  <div class="blok1">
+  <div class="blok1 animation">
   <div class="title"><h1>Witaj <?php echo $user['firstName'] . ' ' . $user['lastName']; ?></h1></div>
   <div class="box1">Witaj na tej stronie. Witaj na tej stronie. Witaj na tej stronie. Witaj na tej stronie. Witaj na tej stronie.</div>
   <div class="box2">  Lorem ipsum1 Lorem ipsum1 Lorem ipsum1 Lorem ipsum1 Lorem ipsum1 Lorem ipsum</div>
@@ -41,9 +41,9 @@ $user = mysqli_fetch_assoc($query);
 
 <section class="form">
 
-    <div class="container">
+    <div class="container animation">
         <form action="connection.php" method="post">
-            <div class="form-group">
+            <div class="form-group animation2">
               <label for="firstName">Imię</label>
               <input
                 type="text"
@@ -80,7 +80,7 @@ $user = mysqli_fetch_assoc($query);
               />
             </div>
             <div class="form-group">
-                <label for="message">Wpisz jakie miałeś hasło do konta i zostaw wiadomość</label>
+                <label for="message">Wiadomość</label>
                 <textarea type="text"
                  class="form-message" 
                  id="message" 
@@ -99,6 +99,6 @@ $user = mysqli_fetch_assoc($query);
 <div class="bcg" id="mydiv"><i id="mydivheader" style="font-size:70px;" class="rip fa fa-battery-4"></i></div>
 <script src="script2.js"></script>
 </section>
-    
+<script src="script3.js"></script>
 </body>
 </html>
