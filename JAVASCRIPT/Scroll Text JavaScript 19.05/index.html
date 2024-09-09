@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Scroll Text</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+<body>
+
+    <section>
+        <h1>Scroll down for awesomeness.</h1>
+    </section>
+
+    <section>
+        <p class="reveal-type" data-bg-color="#cccccc" data-fg-color="teal">Systematically ushering in a new generation of amazing designers from [...]</p>
+    </section>
+    
+    <section>
+        <p class="reveal-type" data-bg-color="$b6b600" data-fg-color="black">Second amendment testimonial training [...]</p>
+    </section>
+    
+    <section>
+        <p class="reveal-type" data-bg-color="#353535" data-fg-color="red">Modern UI and UX styles are filled with amazement [...]</p>
+    </section>
+
+    <section>
+        <!-- Additional content if needed -->
+    </section>
+
+    <!-- Importing libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script> 
+
+    <script>
+        // GSAP and ScrollTrigger initialization
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Selecting elements with the class 'reveal-type'
+        const splitTypes = document.querySelectorAll('.reveal-type');
+
+        splitTypes.forEach((char, i) => {
+
+            const bg = char.dataset.bgColor  
+            const fg = char.dataset.fgColor
+            // Using SplitType to split the text into words
+            const text = new SplitType(char, { types: 'chars' });
+            
+            // GSAP animation for each word
+            gsap.fromTo(text.chars, 
+                {
+                    color: bg,
+                    y:-20,
+                    transformOrigin: 'top',
+
+                },
+                {
+                    color: fg,
+                    scale:1,
+                    y:0,
+                    duration:0.3,
+                    stagger:0.02,
+                    scrollTrigger: {
+                        trigger: char,
+                        start: 'top 80%',
+                        end: 'top 20%',
+                        scrub: false,
+                        markers: false,
+                        toggleActions: 'play play reverse reverse'
+                    }
+                
+            })
+        })
+
+        // Lenis smooth scroll initialization
+        const lenis = new Lenis();
+
+        lenis.on('scroll', (e) => {
+            console.log(e);
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+    </script>
+</body>
+</html>
